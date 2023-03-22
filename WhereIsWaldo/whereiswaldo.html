@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hol van Waldo?</title>
+    <style>
+        body{
+            background-image: url("whereiswaldo.jpg");
+            width: 768px;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: fixed;
+        }
+
+        img{
+            max-height: 60px; 
+             
+        }
+
+        #waldo{
+            position:absolute;
+            top:0px;
+            left:0px;
+            padding: 300;
+            }
+        
+        #counter{
+            color:white;
+            position: fixed;
+            top:0px;
+            left:50%;
+            width:50px;
+            transform:translate(-25px);
+            text-align: center;
+            background-color: rgba(0,0,0,0.9);
+            border-bottom-left-radius:20px;
+            border-bottom-right-radius:20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="waldo"><img src="waldo.png" ></div >
+    <div id="counter">0</div>
+    <script>
+
+    waldo.addEventListener("click",Jump);
+
+        function Jump(){
+            let randomTopErtek=Math.round(Math.random()*800);
+            let randomLeftErtek=Math.round(Math.random()*1800);
+            let elem=document.querySelector("#waldo");
+            elem.style.top=randomTopErtek+"px";
+            elem.style.left=randomLeftErtek+"px";
+            let clickNumber=Number(document.querySelector("#counter").innerHTML)+1;
+            document.querySelector("#counter").innerHTML=clickNumber;
+
+        }
+    </script>
+</body>
+</html>

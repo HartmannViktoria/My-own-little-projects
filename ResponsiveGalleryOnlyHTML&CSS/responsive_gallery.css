@@ -1,0 +1,169 @@
+/*Responsive Gallery by Viktoria Hartmann*/
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(237, 219, 199);
+}
+
+input{
+    display: none;
+}
+
+.container{
+    width: 80%;
+    min-width: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+h1{
+    font-size: 40px;
+    margin: 40px auto 0px auto;
+    font-family: 'Zeyada', cursive;
+}
+
+a{
+    color: rgb(167, 114, 125);
+    text-decoration: none;
+}
+
+#menu{
+    width: 100%;
+    margin: 20px auto 20px auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgb(167, 114, 125);
+    justify-content: space-around; 
+}
+
+label{
+    display: inline-block;
+    height: 100px;
+    padding: 20px 5px;
+    margin: 0 20px;
+    line-height: 60px;
+    font-size: 20px;
+    color: rgb(167, 114, 125);
+    cursor: pointer;
+    transition: color .5s;
+}
+
+label:hover{
+    color: rgb(41, 23, 121);;
+}
+
+.gallery{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.photos{
+    display: flex;
+    flex-direction: column;
+    width: 32.5%;
+}
+
+.picture{
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgb(167, 114, 125);;
+    margin-top: 10px;
+    padding: 10px;
+    transition: 1s;
+}
+
+.picture img{
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+footer{
+    text-align: center;
+    margin: 20px;
+}
+
+h2{
+    font-size: 20px;
+    color: rgb(167, 114, 125);
+    font-family: 'Amatic SC', cursive;
+}
+
+#check1:checked~.container .gallery .picture {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    transition: .5s;
+}
+
+#check2:checked~.container .gallery .flowers {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    text-align: center;
+}
+
+#check2:checked~.container .gallery .animals,
+#check2:checked~.container .gallery .buildings{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: 0s;
+}
+
+#check3:checked~.container .gallery .animals {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+}
+
+#check3:checked~.container .gallery .flowers,
+#check3:checked~.container .gallery .buildings {
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: 0s;
+}
+
+#check4:checked~.container .gallery .buildings {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+}
+
+#check4:checked~.container .gallery .flowers,
+#check4:checked~.container .gallery .animals {
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: 0s;
+}
+
+@media only screen and (max-width: 769px) {
+    .container .gallery {
+        flex-direction: column;
+    }
+
+    .container .gallery .photos {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 643px) {
+    .container .gallery {
+        width: 100%;
+    }
+}
