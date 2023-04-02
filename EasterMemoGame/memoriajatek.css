@@ -1,0 +1,158 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  background:rgb(218, 234, 241);
+}
+
+.jatekKepernyo h1 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+span #ido {
+  font-weight: bold;
+}
+
+.jatekKepernyo {
+  box-sizing: content-box;
+  width: 26.87em;
+  padding: 2.5em 3em;
+  background-color: rgb(242, 229, 229);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 0.6em;
+  box-shadow: 0 0.9em 2.8em rgba(86, 66, 0, 0.2);
+}
+
+.jatekFelulet {
+  position: relative;
+  width: 100%;
+  display: grid;
+  gap: 0.6em;
+}
+
+.statisztika {
+  text-align: right;
+  margin-bottom: 20px;
+
+}
+
+.statisztika span {
+  font-weight: bold;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+.kartyaFelulet {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.kartyaHatulja,
+.kartyaSzine {
+  position: absolute;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000000;
+  transition: transform 0.7s ease-out;
+  backface-visibility: hidden;
+}
+
+.kartyaHatulja {
+  background-image: url("img/background.JPG");
+  height: 100px;
+  width: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.kartyaSzine {
+  background-color: #000000;
+  transform: rotateY(180deg);
+}
+
+.kartyaFelulet.flipped .kartyaHatulja {
+  transform: rotateY(180deg);
+}
+
+.kartyaFelulet.flipped .kartyaSzine {
+  transform: rotateY(0deg);
+}
+
+.kezdoKepernyo {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(242, 229, 229);
+  top: 0;
+}
+
+.kezdoKepernyo h2 {
+  padding: 10px;
+  text-align: center;
+}
+
+.kezdoKepernyo p{
+  text-align: center;
+  padding: 15px 20px;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  box-shadow: 0 0.6em 2em rgba(86, 66, 0, 0.3);
+}
+
+#stop {
+  font-size: 20px;
+  display: block;
+  margin: 1.1em auto 0 auto;
+}
+
+.kezdoKepernyo button {
+  font-size: 1.3em;
+  
+}
+
+button:hover {
+  background-color: rgb(198, 220, 228)
+}
+
+.elrejt {
+  display: none;
+}
+
+#eredmeny {
+  text-align: center;
+}
+
+#eredmeny h2 {
+  font-size: 2.5em;
+}
+
+#eredmeny h4 {
+  font-size: 1.8em;
+  margin: 0.6em 0 1em 0;
+}

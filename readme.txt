@@ -1,3 +1,17 @@
+Hello!
+
+Hartmann Viki vagyok, pályamódosító, leendő frontend fejlesztő és webfejlesztő.
+
+Ebben a mappában olyan gyakorlatokat találsz, amelyeket tanulmányaim során készítettem el gyakorlásként.
+Pár év múlva biztos vagyok benne, hogy én is mosolyogni fogok ezen, mint ti most, de minden kezdet nehéz, de én nem adom fel! A célom, hogy jó frontend fejlesztő legyek és nem félek attól, hogy a nagyobb jó érdekében apró feladatokkal is bepiszkítsam a kezem! :) 
+Tanulni, tanulni, tanulni!
+Gyakorolni, gyakorolni, gyakorolni!
+Soha nem fogok elkészülni :D
+
+(A feladatleírásokban megtalálod a linkeket az általam használt képekre/videókra.)
+
+Translated with www.DeepL.com/Translator (free version)
+
 Hi!
 
 I am Viki Hartmann, career changer, future front-end developer and web developer.
