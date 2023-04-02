@@ -10,8 +10,6 @@ Soha nem fogok elkészülni :D
 
 (A feladatleírásokban megtalálod a linkeket az általam használt képekre/videókra.)
 
-Translated with www.DeepL.com/Translator (free version)
-
 Hi!
 
 I am Viki Hartmann, career changer, future front-end developer and web developer.

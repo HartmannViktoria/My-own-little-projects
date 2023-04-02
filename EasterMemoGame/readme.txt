@@ -24,4 +24,3 @@ Ready?
 
 I made the code for learning purposes based on Coding Artist's tutorial. https://codingartistweb.com/2022/06/memory-game-javascript-project/
 
-Translated with www.DeepL.com/Translator (free version)
