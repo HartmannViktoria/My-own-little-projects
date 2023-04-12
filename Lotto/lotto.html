@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="lotto.css">
+    <title>Lotto</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Ötös Lottó Generátor</h1>
+        <button type="button" class="form-control mb-3 btn btn-success" id="sorsolas">Sorsolás indítása</button>
+        <p id="kisorsoltSzamok"></p>
+
+        <table class="table table-responsive table-striped table-hover table-warning table-sm">
+
+            <thead>
+                <tr>
+                    <th>Statisztika</th>
+                    <th>Eredmény</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Húzási statisztika</td>
+                    <td id="huzasStatisztika">0</td>
+                </tr>
+                <tr>
+                    <td>Leggyakrabban előforduló szám</td>
+                    <td id="leggyakoribb">0</td>
+                </tr>
+                <tr>
+                    <td>Legritkábban előforduló szám</td>
+                    <td id="legritkabb">0</td>
+                </tr>
+                <tr>
+                    <td>A legnagyobb terjedelem</td>
+                    <td id="legnagyobbTerjedelem">0</td>
+                </tr>
+                <tr>
+                    <td>A legkisebb terjedelem</td>
+                    <td id="legkisebbTerjedelem">0</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+    <script>
+        let sorsolasGomb = document.querySelector("#sorsolas");
+        let kisorsoltSzamok = document.querySelector("#kisorsoltSzamok");
+        let huzasStatisztika = document.querySelector("#huzasStatisztika");
+        let leggyakoribb = document.querySelector("#leggyakoribb");
+        let legritkabb = document.querySelector("#legritkabb");
+        let legnagyobbTerjedelemElem = document.querySelector("#legnagyobbTerjedelem");
+        let legkisebbTerjedelemElem = document.querySelector("#legkisebbTerjedelem");
+
+
+        let kihuzottSzamok = [];
+        let lottoSzamok = [];
+
+
+        sorsolasGomb.addEventListener("click", function () {
+            lottoSzamok = OtosLottoszamGenerator();
+            kisorsoltSzamok.innerHTML = lottoSzamok.join(", ");
+            kihuzottSzamok.push(...lottoSzamok);
+            StatisztikaKiir();
+        });
+
+        
+        function OtosLottoszamGenerator() {
+            const lottoSzamok = [];
+            for (let i = 0; i < 5; i++) {
+                let generaltSzam = Math.round(Math.random() * 89) + 1;
+                let szerepelE = false;
+                for (let j = 0; j < lottoSzamok.length; j++) {
+                    if (generaltSzam == lottoSzamok[j]) {
+                        szerepelE = true;
+                    }
+                }
+                if (!szerepelE) {
+                    lottoSzamok.push(generaltSzam);
+                } else {
+                    i--;
+                }
+            }
+            return lottoSzamok;
+        }
+
+
+        function StatisztikaKiir() {
+            let statisztika = "";
+            if (kihuzottSzamok.length > 0) {
+                statisztika = HuzasStatisztika();
+            }
+            huzasStatisztika.innerHTML = statisztika;
+            leggyakoribb.innerHTML = LeggyakoribbSzamok(kihuzottSzamok);
+            legritkabb.innerHTML = LegritkabbSzamok(kihuzottSzamok);
+            legnagyobbTerjedelemElem.innerHTML = LegnagyobbTerjedelem(kihuzottSzamok);
+            legkisebbTerjedelemElem.innerHTML = LegkisebbTerjedelem(kihuzottSzamok);
+        }
+
+
+        function HuzasStatisztika() {
+            let szamGyakorisag = {};
+
+            for (let i = 0; i < kihuzottSzamok.length; i++) {
+                let szam = kihuzottSzamok[i];
+
+                if (!szamGyakorisag[szam]) {
+                    szamGyakorisag[szam] = 1;
+                } else {
+                    szamGyakorisag[szam]++;
+                }
+            }
+
+            let statisztika = "";
+            for (let szam in szamGyakorisag) {
+                statisztika += `${szam} (${szamGyakorisag[szam]})\n`;
+            }
+
+            return statisztika;
+        }
+
+
+        function LeggyakoribbSzamok(szamok) {
+            let gyakorisagok = {};
+            let maxGyakorisag = 0;
+
+            szamok.forEach(szam => {
+                gyakorisagok[szam] = gyakorisagok[szam] + 1 || 1;
+                maxGyakorisag = Math.max(maxGyakorisag, gyakorisagok[szam]);
+            });
+
+            return Object.keys(gyakorisagok)
+                .filter(szam => gyakorisagok[szam] === maxGyakorisag)
+                .join(', ');
+        }
+
+
+        function LegritkabbSzamok(szamok) {
+            let gyakorisagok = {};
+            for (let szam of szamok) { //for (let i=0; i<szamok.length;i++)
+                gyakorisagok[szam] = (gyakorisagok[szam] || 0) + 1;
+            }
+            let minGyakorisag = Math.min(...Object.values(gyakorisagok));
+            let legritkabbSzamok = [];
+            for (let szam in gyakorisagok) { 
+                if (gyakorisagok[szam] === minGyakorisag) {
+                    legritkabbSzamok.push(szam);
+                }
+            }
+            return legritkabbSzamok;
+        }
+
+
+        function LegnagyobbTerjedelem(szamok) {
+            let min = Math.min(...szamok);
+            let max = Math.max(...szamok);
+
+            return max - min;
+        }
+
+
+        function LegkisebbTerjedelem(szamok) {
+            let min = Math.min(...szamok);
+            let max = Math.max(...szamok);
+
+            let minTerjedelem = Infinity; 
+            
+            for (let i = min; i <= max; i++) {
+                if (!szamok.includes(i)) {
+                    continue;
+                }
+
+                for (let j = i + 1; j <= max; j++) {
+                    if (!szamok.includes(j)) {
+                        continue;
+                    }
+
+                    let terjedelem = j - i;
+                    if (terjedelem < minTerjedelem) {
+                        minTerjedelem = terjedelem;
+                    }
+                }
+            }
+
+            return minTerjedelem;
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
