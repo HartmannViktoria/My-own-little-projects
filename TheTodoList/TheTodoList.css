@@ -1,0 +1,111 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    background: rgb(167, 114, 125);
+}
+.container{
+    width: 40%;
+    min-width: 450px;
+    position: absolute;
+    min-height: 100px;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    background: rgb(249, 245, 231);
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px;
+}
+h1{
+  text-align: center;
+  margin: 20px;
+}
+
+h2{
+  text-align: center;
+  font-size: small;
+  font-style: italic;
+}
+
+h3{
+  font-size: medium;
+}
+
+#ujfeladat{
+  position: relative;
+  padding: 30px 20px;
+}
+#ujfeladat input{
+  width: 70%;
+  height: 45px;
+  font-size: 15px;
+  border: 2px solid #d1d3d4;
+  padding: 12px;
+  color: #111111;
+  font-weight: 500;
+  position: relative;
+  border-radius: 5px;
+  margin: px;
+}
+#ujfeladat input:focus{
+  outline: none;
+  border-color: rgb(167, 114, 125);
+}
+
+#ujfeladat button{
+  position: relative;
+  float: right;
+  width: 25%;
+  height: 45px;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: rgb(167, 114, 125);
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+ 
+}
+
+#feladatok{
+    background-color: rgb(249, 245, 231);
+    padding: 30px 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 100%;
+    position: relative;
+}
+.feladat{
+    background-color: rgba(167, 114, 125, 0.6);
+    height: 50px;
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #939697;
+    cursor: pointer;
+}
+.feladat span{
+    font-size: 15px;
+    font-weight: 400;
+}
+.feladat button{
+    background-color: rgb(167, 114, 125);
+    color: #ffffff;
+    height: 100%;
+    width: 40px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.torles{
+  color: white;
+}
